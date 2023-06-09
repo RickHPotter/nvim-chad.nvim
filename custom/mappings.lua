@@ -17,7 +17,9 @@ M.dap = {
     }
   }
 }
-
+--
+-- GO
+-- 
 M.dap_go = {
   plugin = true,
   n = {
@@ -49,5 +51,19 @@ M.gopher = {
     }
   }
 }
-
+--
+-- RUST
+-- 
+M.crates = {
+  plugin = true,
+  n = {
+    ["<leader>rcu"] = {
+      function ()
+        require('crates').upgrade_all_crates()
+      end,
+      "update crates"
+    }
+  }
+}
 return M
+
