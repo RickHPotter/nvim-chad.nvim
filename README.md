@@ -1,8 +1,9 @@
 # nvim-chad
 
-So many steps ahead:
-
-First step is to install nvim 0.9
+Reference:
+https://youtu.be/Mtgo-nP_r8Y
+https://youtu.be/i04sSQjd-qo
+https://youtu.be/mh_EJhH49Ms
 
 I'll proceed with only cmd lines (This is for linux only, by the way)
 
@@ -57,6 +58,27 @@ nvim
 ```vim
 :MasonInstall
 // wait and see
+```
+
+Considerations:
+
+- As for GO, again, make sure your GOPATH is set accordingly, and now install the the
+following go packages: gofumpt, goimports-reviser and golines. For these to work, you
+have to install them using `go instal ...` and be able to call them, e.g. `golines`,
+if this last command prompts `golines is not a command`, then your GOPATH is messed up.
+
+```bash
+go install mvdan.cc/gofumpt@latest
+go install -v github.com/incu6us/goimports-reviser/v3@latest
+go install github.com/segmentio/golines@latest
+```
+
+- As for Rust, again, make sure you installed Rust. You will need it for the next command.
+
+```bash
+rustup component add rust-analyzer
+sudo apt-get update
+sudo apt-get install lldb
 ```
 
 ## Customising and Mapping
