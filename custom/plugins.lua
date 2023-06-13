@@ -7,7 +7,13 @@ local plugins = {
       ensure_installed = {
         "gopls",
         "rust-analyzer",
-      },
+        "html-lsp",
+        "htmlbeautifier",
+        "eslint-lsp",
+        "json-to-struct",
+        "ruby-lsp",
+        "erb-lint",
+     },
     },
   },
   {
