@@ -1,11 +1,13 @@
 # nvim-chad
 
 Reference:
-https://youtu.be/Mtgo-nP_r8Y
-https://youtu.be/i04sSQjd-qo
-https://youtu.be/mh_EJhH49Ms
+> https://youtu.be/Mtgo-nP_r8Y
+> https://youtu.be/i04sSQjd-qo
+> https://youtu.be/mh_EJhH49Ms
 
 I'll proceed with only cmd lines (This is for linux only, by the way)
+Just my two cents here. If you have to use Windows, then either go for Linux Virtual
+Machine (this runs fine on Windows) or go for a WSL config. I use both.
 
 ## Installing Nvim 0.9
 
@@ -21,7 +23,7 @@ cp -r nvim $HOME
 cd
 sublime .bashrc (could use nano, but it sucks)
 # append to file the following lines without '#':
-# alias nvim=vim
+# alias vim=nvim
 # export PATH=$HOME/nvim/bin:$PATH
 # save file, if in nano, you have to summon a demon to save it for you
 source .bashrc
@@ -50,16 +52,6 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
 ## Cloning repo into config folder
 
-```bash
-git clone <this_repo> ~/.config/nvim/lua
-nvim
-# last command might prompt another install window, just wait
-```
-```vim
-:MasonInstall
-// wait and see
-```
-
 Considerations:
 
 - As for GO, again, make sure your GOPATH is set accordingly, and now install the the
@@ -79,6 +71,33 @@ go install github.com/segmentio/golines@latest
 rustup component add rust-analyzer
 sudo apt-get update
 sudo apt-get install lldb
+```
+
+If you're not me, which is a pleasant way to live ('inside in i feel like i dont belong here')
+go for this step below.
+```bash
+mv ~/.config/nvim/lua/custom ~/.config/nvim/lua/custom.backup 
+cd ~/Downloads
+git clone <this_repo>
+cp -r <this_repo>/custom/* ~/.config/nvim/lua/custom
+nvim
+# last command might prompt another install window, just wait
+```
+Otherwise, if you're me and I'm you, then go for this next step.
+```bash
+cd ~/.config/nvim/lua
+rm -rf custom.backup
+mv custom custom.backup
+git clone <this_repo>
+nvim
+```
+
+```bash
+Then inside nvim, a prompt will popup for new install, wait. A second time,
+you might have to run the following command.
+```vim
+:MasonInstallAll
+// wait and see, dont get confused, theres an 'All' at the end.
 ```
 
 ## Customising and Mapping
