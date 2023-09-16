@@ -31,7 +31,7 @@ nvim -v
 # if it's not 0.9 or more, then none of the following steps will work
 ```
 
-## Installing NvimChad
+## Installing NvChad
 
 Disclaimer: Make sure you have gcc or g++ or ming64w installed. You need either C or C++
 for nvim-treesitter to work. Might be a pain, but make sure it works. Always use the tag
@@ -43,8 +43,10 @@ sudo apt-get install --reinstall -y build-essential
 sudo apt-get install --reinstall -y git
 gcc --version
 # if last line outputs something other than dread, hooray!
+
 # if you have a nvim setup with some shit you don't want to lose, back that up with
 # mv ~/.config/nvim ~/.config/nvim.backup
+
 rm -rf ~/.local/share/nvim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 # Press N when nvim asks you to use setupt on its own and wait for nvim to set default
@@ -73,23 +75,37 @@ sudo apt-get update
 sudo apt-get install lldb
 ```
 
-If you're not me, which is a pleasant way to live ('inside in i feel like i dont belong here')
-go for this step below.
+- As for Ruby, again, install RVM, and the gems.
+
+```bash
+gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+sudo apt-get install curl wget -y
+\curl -sSL https://get.rvm.io | sudo bash
+# exit all terminals and then open another one
+rvm list
+# No RVM rubies? Then proceed.
+rvm install 3.2.0 # for example
+```
+
+```bash
+gem install solargraph
+gem install neovim
+gem install bundler
+```
+
+As for all:
+
+```bash
+sudo apt-get -qq update
+sudo apt-get -qq install sqlite3 libsqlite3-dev xclip python3-pip -y
+sudo npm install -s -g neovim diagnostic-languageserver -y
+```
+
 ```bash
 mv ~/.config/nvim/lua/custom ~/.config/nvim/lua/custom.backup 
-cd ~/Downloads
-git clone <this_repo>
-cp -r <this_repo>/custom/* ~/.config/nvim/lua/custom
+git clone git@github.com:RickHPotter/nvim-chad.git ~/.config/nvim/lua/custom
 nvim
 # last command might prompt another install window, just wait
-```
-Otherwise, if you're me and I'm you, then go for this next step.
-```bash
-cd ~/.config/nvim/lua
-rm -rf custom.backup
-mv custom custom.backup
-git clone <this_repo>
-nvim
 ```
 
 ```bash
@@ -102,14 +118,7 @@ you might have to run the following command.
 
 ## Customising and Mapping
 
--- TODO: Fill this up!
-
 SPACE t h -> set theme, cat
 
-## Language Support
-
-Inside nvim, press colon (:) and write `:TSInstall <>` being <> the name of the language.
-In this case, go or rust, whichever. To see which ones are there, you can call for :TSInstallInfo.
-You can write down all the languages you want syntax-highlight on and use them as args, like:
-:TSInstall a b c d
+-- TODO: Fill this up!
 
