@@ -15,8 +15,8 @@ Disclaimer: This set of instructions work as long as you don't have another vim 
 and have both rust and go installed already. As for go, make sure you GOPATH is corret.
 
 ```bash
+sudo apt-get install curl get xz-utils -y
 wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-sudo apt-get install xz-utils
 tar -xf nvim-linux64.tar.gz
 mv nvim-linux64 nvim
 cp -r nvim $HOME
@@ -56,6 +56,17 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
 Considerations:
 
+As for all:
+
+```bash
+sudo apt-get -qq update
+sudo apt-get -qq install sqlite3 libsqlite3-dev xclip python3-pip -y
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sudo bash
+source ~/.bashrc # in case you're using other than bash, just reload the terminal instead
+nvm install node
+npm install -s -g neovim diagnostic-languageserver -y
+```
+
 - As for GO, again, make sure your GOPATH is set accordingly, and now install the the
 following go packages: gofumpt, goimports-reviser and golines. For these to work, you
 have to install them using `go instal ...` and be able to call them, e.g. `golines`,
@@ -79,7 +90,6 @@ sudo apt-get install lldb
 
 ```bash
 gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-sudo apt-get install curl wget -y
 \curl -sSL https://get.rvm.io | sudo bash
 # exit all terminals and then open another one
 rvm list
@@ -93,32 +103,24 @@ gem install neovim
 gem install bundler
 ```
 
-As for all:
-
-```bash
-sudo apt-get -qq update
-sudo apt-get -qq install sqlite3 libsqlite3-dev xclip python3-pip -y
-sudo npm install -s -g neovim diagnostic-languageserver -y
-```
-
 ```bash
 mv ~/.config/nvim/lua/custom ~/.config/nvim/lua/custom.backup 
 git clone git@github.com:RickHPotter/nvim-chad.git ~/.config/nvim/lua/custom
+# change ssh into https if you're not me
 nvim
 # last command might prompt another install window, just wait
 ```
 
-```bash
-Then inside nvim, a prompt will popup for new install, wait. A second time,
-you might have to run the following command.
-```vim
-:MasonInstallAll
-// wait and see, dont get confused, theres an 'All' at the end.
-```
+Then inside nvim, a prompt will popup for new install, wait for it to end.
+Now press SHIFT-U to update. Exit nvim and run it again and test.
 
 ## Customising and Mapping
 
 SPACE t h -> set theme, cat
 
 -- TODO: Fill this up!
+
+TODO next commits:
+Codeium
+gitsigns fix
 
