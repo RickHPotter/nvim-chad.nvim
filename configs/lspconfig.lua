@@ -20,18 +20,25 @@ lspconfig.solargraph.setup(
   }
 )
 
-require("formatter").setup({
-  logging = false,
-  filetype = {
-    ruby = { require("custom.configs.formatter_rubocop") }, -- Format with rubocop -A instead normal.
-    javascript = { require("formatter.filetypes.javascript").prettier },
-    typescript = { require("formatter.filetypes.typescript").prettier },
-    javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
-    typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
-    lua = { require("formatter.filetypes.lua").stylua },
-    python = { require("formatter.filetypes.python").black },
-  },
-})
+-- require("formatter").setup({
+--   logging = false,
+--   filetype = {
+--     ruby = { require("custom.configs.formatter_rubocop") },
+--     javascript = { require("formatter.filetypes.javascript").prettier },
+--     typescript = { require("formatter.filetypes.typescript").prettier },
+--     javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
+--     typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
+--     lua = { require("formatter.filetypes.lua").stylua },
+--     python = { require("formatter.filetypes.python").black },
+--     ["*"] = {
+--       require("formatter.filetypes.any").remove_trailing_whitespace,
+--       function()
+--         vim.lsp.buf.format({ async = true })
+--       end,
+--     }
+--   },
+-- })
+
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -51,4 +58,3 @@ lspconfig.gopls.setup({
     }
   }
 })
-

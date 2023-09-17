@@ -35,7 +35,7 @@ local plugins = {
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
-    config = function(_, opts)
+    config = function(_, _)
       require("nvim-dap-virtual-text").setup()
     end
   },
@@ -55,31 +55,22 @@ local plugins = {
   {
     "Exafunction/codeium.vim",
     event = 'BufEnter',
+  },
+  -- TODO: formatter is not working
+  {
+    "mhartington/formatter.nvim",
     config = function()
-      vim.g.codeium_disable_bindings = 1
-      vim.g.codeium_filetypes = { TelescopePrompt = false }
-
-      vim.keymap.set('i', '<C-j>', function() return vim.fn['codeium#Accept']() end, { expr = true })
-      vim.keymap.set('i', '<C-f>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-      vim.keymap.set('i', '<C-b>', function() return vim.fn['codeium#CycleCompletions']( -1) end, { expr = true })
-      vim.keymap.set('i', '<C-]>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+      require "custom.configs.formatter"
     end
   },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup()
-    end,
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
-  "mhartington/formatter.nvim",
+  -- "mhartington/formatter.nvim",
   "rcarriga/nvim-notify",
   --
   -- RUBY ON RAILS
   --
-  "otavioschwanck/ruby-toolkit.nvim",
-  "tpope/vim-rails",
-  "vim-ruby/vim-ruby",
+  -- "otavioschwanck/ruby-toolkit.nvim",
+  { "vim-ruby/vim-ruby" },
+  { "tpope/vim-rails" },
   --
   -- DART FLUTTER
   --
