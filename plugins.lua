@@ -57,20 +57,23 @@ local plugins = {
     event = 'BufEnter',
   },
   -- TODO: formatter is not working
-  {
-    "mhartington/formatter.nvim",
-    config = function()
-      require "custom.configs.formatter"
-    end
-  },
-  -- "mhartington/formatter.nvim",
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   config = function()
+  --     require "custom.configs.formatter"
+  --   end
+  -- },
   "rcarriga/nvim-notify",
   --
   -- RUBY ON RAILS
   --
   -- "otavioschwanck/ruby-toolkit.nvim",
+  -- if the following lines work, I'm a headless whitch with triple breasts
   { "vim-ruby/vim-ruby" },
+  { "tpope/vim-dispatch" },
+  { "tpope/vim-rake" },
   { "tpope/vim-rails" },
+  { "tpope/vim-bundler" },
   --
   -- DART FLUTTER
   --
@@ -149,4 +152,5 @@ local plugins = {
     end
   },
 }
+
 return plugins
