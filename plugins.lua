@@ -63,12 +63,25 @@ local plugins = {
   --     require "custom.configs.formatter"
   --   end
   -- },
+  {
+ "folke/persistence.nvim",
+    event = "BufReadPre",
+    config = function ()
+      require("persistence").setup({
+        dir = vim.fn.expand(vim.fn.stdpath("state") .. "/sessions/"),
+        options = {'buffers', 'curdir', 'tabpages', 'winsize'},
+        pre_save = function()
+          vim.api.nvim_exec_autocmds('User', { pattern = 'SessionSavePre' })
+        end,
+      })
+    end
+  },
   "rcarriga/nvim-notify",
   --
   -- RUBY ON RAILS
   --
-  -- "otavioschwanck/ruby-toolkit.nvim",
   -- if the following lines work, I'm a headless whitch with triple breasts
+  { "otavioschwanck/ruby-toolkit.nvim" },
   { "vim-ruby/vim-ruby" },
   { "tpope/vim-dispatch" },
   { "tpope/vim-rake" },
@@ -81,6 +94,7 @@ local plugins = {
     "akinsho/flutter-tools.nvim",
     event = "VeryLazy",
     dependencies = {
+      'nvim-lua/plenary.nvim',
       "stevearc/dressing.nvim",
     },
     config = function()

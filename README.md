@@ -1,9 +1,9 @@
 # nvim-chad
 
 Reference:
-> https://youtu.be/Mtgo-nP_r8Y
-> https://youtu.be/i04sSQjd-qo
-> https://youtu.be/mh_EJhH49Ms
+ - > https://youtu.be/Mtgo-nP_r8Y
+ - > https://youtu.be/i04sSQjd-qo
+ - > https://youtu.be/mh_EJhH49Ms
 
 I'll proceed with only cmd lines (This is for linux only, by the way)
 Just my two cents here. If you have to use Windows, then either go for Linux Virtual
@@ -103,6 +103,13 @@ gem install neovim
 gem install bundler
 ```
 
+Note: First of all, if you work with different versions of Ruby, you might have to either
+use a >=2.7 version while editing files to grab the solargraph lsp or install an older
+version. In case solargraph is giving you wrong hints and straigh up errors that are from
+older versions of Ruby (hash keys, for example, changed from `something: something` to just `something:`), even though you are using a ruby that supports the syntax solargraph is
+whining about, then it's very likely you need to create a `.ruby-version` file for
+solargraph to use the right version to lint your code.
+
 ```bash
 mv ~/.config/nvim/lua/custom ~/.config/nvim/lua/custom.backup 
 git clone git@github.com:RickHPotter/nvim-chad.git ~/.config/nvim/lua/custom
@@ -125,8 +132,9 @@ It's all good then.
 
 SPACE t h -> set theme, cat
 
--- TODO: Fill this up!
+-- Check 'custom.mappings'.
 
-TODO next commits:
-gitsigns fix
+## TODO
+
+Add right panel that tracks all funcs, defs and classes for better comprehension
 
