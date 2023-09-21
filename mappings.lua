@@ -38,6 +38,10 @@ mapper("n", "<A-m><A-n>", "O<Esc>") -- new line previous line
 mapper("n", "<A-c><A-m>", "<Esc>yyp") -- duplicate current line down
 mapper("n", "<A-c><A-n>", "<Esc>yyP") -- duplicate current line up
 
+-- while visualising
+mapper("v", "<C-k>", ":m '<-2<CR>gv=gv") -- move line down
+mapper("v", "<C-j>", ":m '>+1<CR>gv=gv") -- move line up
+
 -- encapsulators
 mapper("x", "'", "c'<Esc>pa'")
 mapper("x", '"', "c'<Esc>pa'")

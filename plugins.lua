@@ -57,12 +57,12 @@ local plugins = {
     event = 'BufEnter',
   },
   -- TODO: formatter is not working
-  -- {
-  --   "mhartington/formatter.nvim",
-  --   config = function()
-  --     require "custom.configs.formatter"
-  --   end
-  -- },
+  {
+    "mhartington/formatter.nvim",
+    config = function()
+      require "custom.configs.formatter"
+    end
+  },
   {
  "folke/persistence.nvim",
     event = "BufReadPre",
